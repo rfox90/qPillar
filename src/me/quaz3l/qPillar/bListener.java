@@ -24,9 +24,5 @@ public class bListener extends BlockListener
 		{
 			plugin.actOnPillar(p, b);
 		}
-		else
-		{
-			p.sendMessage("No Pillar!");
-		}
 	}
 }
