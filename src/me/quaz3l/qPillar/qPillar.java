@@ -4,7 +4,6 @@ import java.util.logging.Logger;
 
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,9 +13,6 @@ public class qPillar extends JavaPlugin {
 		public static qPillar plugin;
 		public String prefix = "[qPillar] ";
 		public final Logger logger = Logger.getLogger(("Minecraft"));
-		
-	// Listeners
-		private final bListener blockListener = new bListener(this);
 		
 	@Override
 	public void onDisable() 
@@ -44,7 +40,7 @@ public class qPillar extends JavaPlugin {
 		}
 		
 		// Register Block Event
-		getServer().getPluginManager().registerEvent(Event.Type.BLOCK_PLACE, blockListener, Event.Priority.Normal, this);
+		getServer().getPluginManager().registerEvents(new bListener(this), this);
 		
 		// Notify Console
 		PluginDescriptionFile pdfFile = this.getDescription();	
